@@ -1,0 +1,31 @@
+#设置服务端口
+server:
+  port: 8071
+spring:
+  #设置应用名称
+  application:
+    name: service-user
+  #设置数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///shop?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: 123456
+  #设置jpa
+  #spring.jpa.properties.hibernate.hbm2ddl.auto设置为update ,会自动增加或更新数据表结构
+  #spring.jpa.properties.hibernate.dialect 一定要设置:org.hibernate.dialect.MySQL5InnoDBDialect  方言，不然索引方式不是innoDB的
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+  #配置Spring Cloud Alibaba 的nacos服务治理的地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#rocketMQ配置
+rocketmq:
+  name-server: 120.25.199.215:9876  #rocketMQ的nameserver服务的地址

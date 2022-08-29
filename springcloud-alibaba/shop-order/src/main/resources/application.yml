@@ -1,0 +1,66 @@
+#设置服务端口
+server:
+  port: 8091
+  #tomcat的最大并发值修改为10,默认是200
+  tomcat:
+    max-threads: 10
+spring:
+  #设置应用名称
+  application:
+    name: service-order
+  zipkin:
+    base-url: http://localhost:9411/    #zipkin server的请求地址
+    discovery-client-enabled: false     #设置服务发现连接是否开启：否；让nacos把它当成一个URL，而不要当做服务名
+  sleuth:
+    sampler:
+      probability: 1.0  #设置sleuth采样的百分比；1.0 = 100%
+  #设置数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///shop?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: 123456
+  #设置jpa
+  #spring.jpa.properties.hibernate.hbm2ddl.auto设置为update ,会自动增加或更新数据表结构
+  #spring.jpa.properties.hibernate.dialect 一定要设置:org.hibernate.dialect.MySQL5InnoDBDialect  方言，不然索引方式不是innoDB的
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  #配置Spring Cloud Alibaba 的nacos服务治理的地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 9999  #跟控制台交流的端口,随意指定一个未使用的端口即可
+        dashboard: localhost:8080  # 指定控制台服务的地址
+#      filter:
+#        enabled: false
+#服务提供者的名称；设置当前服务调用服务提供者时，使用ribbon进行负载均衡；NFLoadBalancerRuleClassName: com.netflix.loadbalancer.* 设置负载均衡得方式
+#com.netflix.loadbalancer.RandomRule 随机调用
+service-product:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#开启feign对sentinel的支持
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 600000
+  sentinel:
+    enabled: true
+#rocketMQ配置
+rocketmq:
+  name-server: 120.25.199.215:9876  #rocketMQ的nameserver服务的地址
+  producer:             #定义生产者
+    group: shop-order   #定义生产者组名
+dubbo:
+  registry:
+    address: 127.0.0.1:8848 # 注册中心 （spring-cloud://localhost 这个写法是用当前spring cloud技术栈中的注册地址）
+  cloud:
+    subscribed-services: service-product # 订阅的提供者名称(服务提供者在注册中心的名称)

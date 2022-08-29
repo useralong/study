@@ -1,0 +1,25 @@
+spring:
+  #设置应用名称
+  application:
+    name: service-product
+  #配置Spring Cloud Alibaba 的nacos config的地址
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848               # nacos config的地址
+        namespace: public                         # nacos config的命名空间
+        group: SEATA_GROUP                        # seata初始化后在nacos生成配置的分组名称
+    alibaba:
+      seata:
+        tx-service-group: ${spring.application.name}      #设置tx-service-group 的名称（是微服务的名称）
+
+
+
+
+#        file-extension: yaml                      # 配置文件格式
+#        shared-dataids: all-service.yaml          #要引入的配置（这里引入的是多个微服务公共的配置）
+#        refreshable-dataids: all-service.yaml     #配置要实现动态配置刷新的配置文件（这里引入的是多个微服务公共的配置）
+#        namespace:                                #对应nacos控制台 配置中心的命名空间的ID
+#  profiles:
+#    active: dev                         # 开发环境；环境标识（用于区分调用不同环境的配置文件）
+##要在nacos配置中心里创建【service-product.yaml】配置服务端口，【all-service.yaml】配置数据库，注册中心，jpa，【service-product-dev.yaml】配置开发环境
