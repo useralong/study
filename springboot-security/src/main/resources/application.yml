@@ -1,0 +1,33 @@
+
+spring:
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/jsp/
+#      suffix: .jsp
+  thymeleaf:
+    cache: false  #关闭thymeleaf模板引擎的缓存，方便开发时随时调试
+    mode: HTML5
+    encoding: UTF-8
+  datasource:
+    druid:
+      password: 123456
+      username: root
+      url: jdbc:mysql://localhost:3306/rbac?useSSL=true
+      driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    pool:
+      min-idle: 0
+      max-idle: 8
+      max-wait: -1 
+      max-active: 8 
+    port: 6379
+    host: 127.0.0.1
+    database: 0
+
+mybatis:
+  type-aliases-package: com.hp.boot.entity
+  mapper-locations: classpath:com/hp/boot/mapper/*Mapper.xml
+#设置项目名和端口号
+server:
+  port: 8081
+  #context-path: /pro

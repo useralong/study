@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Thymeleaf resources</title>
+    <!--正确thymeleaf模板设置js导入路径位置 -->
+    <script type="text/javascript" th:src="@{/jquery/jquery-1.4.4.min.js}"></script>
+    <!--正确thymeleaf模板设置css导入路径 -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/layui.css}" />
+</head>
+<body>
+<div>
+    <span>访问 Model：</span><span th:text="${key}"></span><!--正确thymeleaf模板为标签赋值方式 -->
+    <p class="">2222</p>
+    <img th:src="@{/img/1.jpg}"/><!--正确thymeleaf模板导入图片方式 -->
+    <img src="/img/2.jpg"/><!--thymeleaf模板无效导入图片方式 -->
+    <h1>Spring Sucurity</h1>
+    <ul>
+        <li>首页</li>
+        <li>用户</li>
+        <li>区域</li>
+        <li>功能</li>
+    </ul>
+</div>
+</body>
+
+</html>

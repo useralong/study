@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+  <!-- 数据库访问的驱动包 ‘使用绝对路径’-->
+  <classPathEntry location="E:\maven\serverRepository\mysql\mysql-connector-java\5.1.45\mysql-connector-java-5.1.45.jar"/>
+ 
+  <!-- 此处指定生成针对MyBatis3的DAO -->	
+  <context id="context1" targetRuntime="MyBatis3">
+  
+  	<!-- 注释设置 -->   
+	<commentGenerator>
+		<property name="javaFileEncoding" value="UTF-8" /><!-- 解决乱码 -->
+		<property name="suppressAllComments" value="true" /> <!-- 是否取消注释true为取消 -->
+		<property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳 -->
+	</commentGenerator>
+	
+	<!-- 元素定义如何连接目标数据库 -->
+    <jdbcConnection
+     connectionURL="jdbc:mysql://localhost:3306/rbac"
+     driverClass="com.mysql.jdbc.Driver" 
+     password="123456" 
+     userId="root" />  
+    
+    <!-- 实体类生成器 -->
+    <javaModelGenerator targetPackage="com.hp.boot.entity" targetProject="Test3/src/main/java" />
+    <!-- mapper.xml生成器 -->
+    <sqlMapGenerator targetPackage="com.hp.boot.mapper" targetProject="Test3/src/main/java">
+    	<property name="enableSubPackages" value="true" /> <!-- 可以在当前路径下新加一层 -->
+    </sqlMapGenerator>
+    <!-- mapper接口生成器 -->
+    <javaClientGenerator targetPackage="com.hp.boot.dao" targetProject="Test3/src/main/java" type="XMLMAPPER">
+    	<property name="enableSubPackages" value="true" /> <!-- 可以在当前路径下新加一层 -->
+    </javaClientGenerator>
+    
+    <table schema="user" tableName="user" 
+	enableCountByExample="false" enableUpdateByExample="false" 
+    enableDeleteByExample="false" enableSelectByExample="false" 
+    selectByExampleQueryId="false">
+	    <!-- 如果设置为true，生成的model类会直接使用column本身的名字，而不会再使用驼峰命名方法-->
+	    <property name="useActualColumnNames" value="false"/>
+ 		<generatedKey column="u_id" sqlStatement="Mysql" identity="true"/>	   
+	</table>
+    
+  </context>
+  
+</generatorConfiguration>
