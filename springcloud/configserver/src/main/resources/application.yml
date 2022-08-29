@@ -1,0 +1,28 @@
+#配置configserver 端口
+server:
+  port: 8888
+
+#spring.application.name 配置当前服务注册在eureka server 上的名字
+#spring.cloud.config.server.git.uri 配置Config 配置中心 远程仓库拉取的配置的路径
+#路径：指向的是配置文件在Git仓库中工程所在的路径
+#spring.cloud.config.server.git.search-paths 配置从GitHub仓库工程所在的哪个目录去找远程配置文件
+#username/password配置登陆GitHub的用户名密码
+#spring.cloud.config.server.label 配置从哪个分支里读取
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/UserWzl/springcloud_one.git
+          searchPaths: config
+          username: root
+          password: root
+      label: master
+
+#配置注册中心的访问地址（启动后，当前微服务会找到注册中心进行注册）
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

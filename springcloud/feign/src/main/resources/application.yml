@@ -1,0 +1,21 @@
+#配置feign 端口
+server:
+  port: 8050
+
+#配置当前服务注册在eureka server 上的名字
+spring:
+  application:
+    name: feign
+
+#defaultZone 配置注册中心的访问地址（启动后，当前微服务会找到注册中心进行注册）
+#instance.prefer-ip-address 是否将当前服务的ip注册到 eureka server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+#feign.hystrix.enabled 是否开启hystrix熔断器（熔断机制）
+feign:
+  hystrix:
+    enabled: true

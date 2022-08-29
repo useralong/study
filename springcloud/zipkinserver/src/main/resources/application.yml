@@ -1,0 +1,9 @@
+#配置 zipkin 服务端 端口
+server:
+  port: 9090
+#zipkin启动报错无法访问的解决方法
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false

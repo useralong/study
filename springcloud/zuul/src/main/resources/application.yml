@@ -1,0 +1,19 @@
+#配置当前服务网关的端口
+server:
+  port: 8030
+#配置当前服务注册在eureka server 上的名字
+spring:
+  application:
+    name: gateway
+#配置注册中心的访问地址（启动后，当前微服务会找到注册中心进行注册）
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+#zuul.routes 网关 给访问服务的web请求做一个映射
+#给某个服务设置映射 如：provider服务设置映射
+#给provider 设置别名p   并设置映射格式为： /p/**
+#只要请求如上格式，都代表访问的是provider服务
+zuul:
+  routes:
+    provider: /p/**

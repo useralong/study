@@ -1,0 +1,19 @@
+#spring.cloud.config.name 配置的是当前服务 通过config 配置中心  远程从GitHub 中读取配置文件的名称；
+#且这个配置文件的名称与当前服务注册在Eureka Server注册中心的名称一致
+#spring.cloud.config.label 配置的是当前服务 通过config 配置中心  远程从GitHub 中读取配置文件的分支
+#spring.cloud.config.discovery.enabled 是否 开启 Config服务的发现支持
+#spring.cloud.config.discovery.service-id 配置服务 对应的config 配置中心 在注册中心的名称
+spring:
+  cloud:
+    config:
+      name: configclient
+      label: master
+      discovery:
+        enabled: true
+        service-id: configserver
+
+#配置注册中心的访问地址（启动后，当前微服务会找到注册中心进行注册）
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

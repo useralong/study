@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springcloud</artifactId>
+        <groupId>com.southwind</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>restTemplate</artifactId>
+
+    <!-- 引入spring boot 相关依赖 -->
+    <!-- 由于当前spring boot工程是子工程，且父工程的pom.xml 已经引入了spring boot相关依赖 -->
+    <!-- 且restTemplate组件集成到了spring boot里所以当前工程pom.xml文件不需要引入其他依赖 -->
+
+</project>

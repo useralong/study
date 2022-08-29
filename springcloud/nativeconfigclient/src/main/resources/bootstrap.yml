@@ -1,0 +1,16 @@
+#cloud.config.uri 配置Config配置中心的访问路径(这里是本地Config server的访问路径)
+#（启动服务后会通过配置的路径端口找到Config配置中心）
+#cloud.config.fail-fast 设置客户端优先判断 Config配置中心获取是否正常
+#通过 spring.application.name 结合 spring.profiles.active 配置的值  以 “-” 拼接起来，来得到目标配置文件名 去Config配置中心查找并使用
+#例：（spring.application.name：configclient）   （spring.profiles.active：dev）
+#以“-”号将配置的值拼接后为：configclient-dev 在Config配置中心里找到名为configclient-dev得配置文件并使用
+spring:
+  application:
+    name: configclient
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8762
+      fail-fast: true
+

@@ -1,0 +1,14 @@
+#配置其他服务调用的配置文件 端口
+server:
+  port: 8070
+
+#配置当前服务注册在eureka server 上的名字
+spring:
+  application:
+    name: configclient
+
+#配置注册中心的访问地址（启动后，当前微服务会找到注册中心进行注册）
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

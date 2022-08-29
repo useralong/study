@@ -1,0 +1,5 @@
+#配置其他服务调用的配置文件 端口
+#foo 一般用于配置版本
+server:
+  port: 8070
+foo: foo version 1
