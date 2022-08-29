@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f4c02134-0b83-4c9d-b5f6-38e952213621" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="177" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="1u84GdHVG35GKTAJtGUGbSa7ImN" />
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/../itcastcrawlerjd/src/main/java/cn/itcast/jd" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/simhash-master/simhash-master" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15234375" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.splitter.proportion" value="0.2467917" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Java_Idea\itcast-crawler-webmagic\src\main\resources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Java_Idea\itcast-crawler-job\src\main\resources" />
+      <recent name="E:\Java_Idea\itcastcrawlerfirst\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.JobApplication">
+    <configuration name="ArticleProcessor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.job.task.fh.ArticleProcessor" />
+      <module name="itcast-crawler-job" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.itcast.job.task.fh.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JobProcessor (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.webmagic.JobProcessor" />
+      <module name="itcastcrawlerwebmagic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.itcast.webmagic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JobProcessor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.webmagic.test.JobProcessor" />
+      <module name="itcast-crawler-webmagic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.itcast.webmagic.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.itcast.webmagic.Solution" />
+      <module name="itcastcrawlerwebmagic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.itcast.webmagic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JobApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="itcast-crawler-job" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.itcast.job.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.itcast.job.JobApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.JobApplication" />
+        <item itemvalue="Application.ArticleProcessor" />
+        <item itemvalue="Application.JobProcessor (1)" />
+        <item itemvalue="Application.Solution" />
+        <item itemvalue="Application.JobProcessor" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f4c02134-0b83-4c9d-b5f6-38e952213621" name="Default Changelist" comment="" />
+      <created>1624033787292</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624033787292</updated>
+      <workItem from="1624033792558" duration="2001000" />
+      <workItem from="1624035848593" duration="26438000" />
+      <workItem from="1625841474812" duration="4826000" />
+      <workItem from="1636286058554" duration="13681000" />
+      <workItem from="1636551790209" duration="12674000" />
+      <workItem from="1636643089026" duration="9953000" />
+      <workItem from="1636791586783" duration="21142000" />
+      <workItem from="1639056889631" duration="1754000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../itcast-crawler-job/src/main/java/cn/itcast/job/task/JobProcessor.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../itcast-crawler-job/src/main/java/cn/itcast/job/task/fh/ArticleProcessor.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../itcast-crawler-job/src/main/java/cn/itcast/job/task/JobProcessor.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../itcast-crawler-job/src/main/java/cn/itcast/job/task/JobProcessor.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../itcast-crawler-job/src/main/java/cn/itcast/job/task/PoxyTest.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../itcast-crawler-job/src/main/java/cn/itcast/job/task/PoxyTest.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../itcast-crawler-job/src/main/java/cn/itcast/job/task/JobProcessor.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/itcast_crawler_first$ArticleProcessor.ic" NAME="ArticleProcessor Coverage Results" MODIFIED="1636816288202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>cn.itcast.job.task.fh.*</FILTER>
+    </SUITE>
+  </component>
+</project>
