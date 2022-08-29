@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo.mapper.UserMapper">
+
+    <resultMap id="UserMap" type="User">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_name" property="name" jdbcType="VARCHAR"/>
+        <result column="pass_word" property="pwd" jdbcType="VARCHAR"/>
+        <result column="salt" property="salt" jdbcType="INTEGER"/>
+        <result column="perms" property="perms" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--当resultMap中的column与property的参数名称一样时  -->
+    <!--可以使用resultType="User" 或者 resultMap="UserMap"  -->
+    <!--当resultMap中的column与property的参数名称不一样时  -->
+    <!--只可以使用 resultMap="UserMap"  -->
+    <!--当没有<resultMap></resultMap>标签时 只可以使用 resultType="User"-->
+    <select id="queryUserByName" parameterType="String" resultMap="UserMap">
+        select * from user where user_name = #{name}
+    </select>
+
+
+    <!--<select id="selectUser" resultType="User">
+        select * from user
+    </select>
+
+    <select id="selectUserById" resultType="User">
+        select * from user where id = #{id}
+    </select>
+
+    <insert id="addUser" parameterType="User">
+        insert into user (user_name,pass_word)
+        values (#{name},#{pwd});
+    </insert>
+
+    <update id="updateUser" parameterType="User">
+        update user set user_name = #{name},pass_word = #{pwd} where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from user where id = #{id}
+    </delete>-->
+
+</mapper>
