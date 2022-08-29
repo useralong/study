@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #left{
+        float: left;
+        width: 30%;
+        height: 500px;
+        margin-left: 200px;
+    }
+    #right{
+        float: right;
+        width: 30%;
+        height: 500px;
+    }
+    #top{
+        margin-top: 50px;
+        float: top;
+        width: 30%;
+        height: 250px;
+    }
+    #content{
+        border: aquamarine 1px solid;
+        width: 100%;
+        height: 300px;
+    }
+    #input{
+        margin-top: 20px;
+        width: 100%;
+        height: 200px;
+    }
+    #input input{
+        width: 100%;
+        height: 100px;
+    }
+    #input button{
+        float: right;
+    }
+    #mes_left{
+        float: left;
+
+    }
+    #mes_right{
+        float: right;
+        width: 50%;
+        text-align: right;
+    }
+</style>
+
+<!-- 引入百度JQ CDN -->
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<body>
+<h3 style="text-align: center" id="username"></h3>
+<div>
+    <div id="left">
+        <h4 id="chatMes"></h4>
+        <div id="chatFrame">
+
+        </div>
+        <div id="input">
+            <input type="text" id="input_text">
+            <button id="submit">发送</button>
+        </div>
+    </div>
+    <div id="right">
+        <div id="top">
+            <p>在线的好友</p>
+            <div id="friendList">
+
+            </div>
+        </div>
+        <div id="bottom">
+            <p>系统广播</p>
+            <div id="broadcastList">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var username;
+    var toName;
+
+    function showChat(name){
+        toName = name;
+        //现在聊天对话框
+        //$("#chatFrame").css("display","inline");
+        $("#chatFrame").html(""); //重进聊天界面时清空会话
+        //显示正在和谁聊天
+        $("#chatMes").html("正在和<font face=\"楷体\">"+toName+"</font> 聊天")
+        //sessionStorage存储数据到客户端
+        var chatData = sessionStorage.getItem(toName);
+        if(chatData != null){
+            //如果当前用户点击的聊天对象有数据，则将数据渲染到聊天区
+            $("#chatFrame").html(chatData);
+        }
+
+    }
+
+
+    $(function () {
+        $.ajax({
+            url:"getUsername",
+            success:function (res) {
+                username = res;
+                $("#username").html("用户："+ res + "<span style='float: right;color: green>在线</span>'>")
+            },
+            async:false    //ajax设置为同步请求，只有上面的请求好了才会请求下面
+        });
+
+        //创建 WebSocket 对象，建立与服务端的 websocket 连接
+        var socket = new WebSocket("ws://localhost:8080/chat");
+        //给 websocket 帮绑定事件，
+        socket.onopen = function () {
+            //在建立连接后需要做什么？显示在线信息
+            $("#username").html("用户："+ username + "<span style='float: right;color: green>在线</span>'>")
+        }
+
+        //接收服务端推送的消息后触发
+        // evt 事件对象，提供了属性可以获取服务端推送过来的消息
+        socket.onmessage = function (evt) {
+            //获取服务器推送过来的消息，是一个json字符串
+            var dataStr = evt.data;
+            //将data转换成json对象
+            var res = JSON.parse(dataStr);
+            //判断是否是系统消息
+            if(res.system){
+                //系统消息
+                var names = res.message;
+                //1、好友列表的展示
+                var friendListStr = "";
+                var broadcastListStr = "";
+
+                for(var name of names){
+                    if(name != username){
+                        friendListStr += "<li><a onclick='showChat(\""+name+"\")'>"+ name +"</a></li>"
+                        broadcastListStr += "<li style='\color: #9d9d9d;font-family: 宋体\'>您的好友 "+ name +" 已经上线</li>";
+                    }
+                }
+
+                //2、系统广播的展示
+                $("#friendList").html(friendListStr);
+                $("#broadcastList").html(broadcastListStr);
+
+            }else{
+                var name = res.message;
+                //非系统消息，将服务端推送的消息进行展示（接收消息的一方客户端会经过这段代码）
+                var str = "<span id='mes_left'>"+ name +"</span></br>";
+                //判断我这条消息发送的对象，就是上一条给我发送消息的人时
+                if (toName == res.fromName){ //res.fromName代表这段响应中发送消息的人，也就是发消息给我的人
+                    //就新增消息到显示区显示
+                    $("#chatFrame").append(str);
+                }
+                //然后获取当前我的消息发送的对象是否有存消息到客户端session里
+                //如果没有点开对话框 toName 会为空，所以就要用 res.fromName 为key，存储对方发给我的消息
+                var chatdata = sessionStorage.getItem(res.fromName);
+                if (chatdata != null){
+                    chatdata += str;
+                }
+                //有就把消息拼接后以当天聊天对象的名称为key存储起来，没有就直接存，session键值对存储
+                sessionStorage.setItem(res.fromName,chatdata);
+
+            }
+
+        }
+
+        socket.onclose = function () {
+            //在关闭连接后需要做什么？显示离线信息
+            $("#username").html("用户："+ username + "<span style='float: right;color: green>离线</span>'>")
+        }
+
+        $("#submit").click(function () {
+            //获取输入的内容
+            var data = $("#input_text").val();
+            $("#input_text").val("");//清空输入区的内容
+            //客户端发送消息到服务端格式：{“toName”:"张三","message":"你好}
+            var json = {"toName":toName,"message":data};
+
+            //将自己发送的数据展示在聊天区的右边
+            var str = "<span id='mes_right'>"+ data +"</span></br>";
+            $("#chatFrame").append(str);
+
+            //使用 客户端的 websocket 发送数据给服务端
+            socket.send(JSON.stringify(json)); //将json对象转换为json字符串发送
+
+            //然后获取当前我的消息发送的对象是否有存消息到客户端session里
+            var chatdata = sessionStorage.getItem(toName);
+            if (chatdata != null){
+                chatdata += str;
+            }
+            //有就把消息拼接后以当天聊天对象的名称为key存储起来，没有就直接存，session键值对存储
+            sessionStorage.setItem(toName,chatdata);
+        })
+
+    })
+</script>
+</body>
+</html>
