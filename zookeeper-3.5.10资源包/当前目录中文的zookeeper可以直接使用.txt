@@ -1,0 +1,1 @@
+没解压的，解压后需要在conf目录copy一份zoo_sample.cfg 改名为 zoo.cfg
